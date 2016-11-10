@@ -1,0 +1,24 @@
+<div class="container center_div">
+  <div class='card'>
+    <h1> <%= @cocktail.name %> </h1>
+    <br>
+    <% @cocktail.doses.each do |dose| %>
+      <b><%= dose.ingredient.name %></b>,
+      <%= dose.description %>
+      <%=link_to('Dlt', cocktail_dose_path(@cocktail, dose), method: :delete)%><br>
+    <% end %>
+    <br>
+    <br>
+    <%=link_to('Go back to cocktails', cocktails_url)%>
+  </div>
+
+  <div class="card">
+    <h2>Add an ingredient</h2>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.association :ingredient, input_html: { class: 'form_input' }%>
+      <%= f.input :description, input_html: { class: 'form_input' } %>
+      <%= f.submit "add a dose", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<%# link_to('Add Dose', cocktail_dose_path(@cocktail.id))%>
