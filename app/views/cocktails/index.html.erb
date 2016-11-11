@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="card text-center">
-    <h1>Cocktails</h1>
-    <br>
-    <br>
-    <br>
-      <%@cocktails.each do |cocktail|%>
-      <%= cocktail.name %> <%= link_to('view', cocktail_path(cocktail)) %><br>
-      <%end%>
-    <br>
-    <br>
-    <br>
-    <%=link_to('CREATE NEW COCKTAIL', new_cocktail_url)%>
+<%= render 'jumbo' %>
+<div class='container text-center'>
+  <h2>Featured Cocktails</h2>
+  <div class="row">
+    <%@cocktails.each do |cocktail|%>
+      <div class="col-xs-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-block">
+            <h3 class="card-title"><%= cocktail.name %></h3>
+            <%= link_to('view', cocktail_path(cocktail)) %>
+          </div>
+        </div>
+      </div>
+    <%end%>
   </div>
 </div>

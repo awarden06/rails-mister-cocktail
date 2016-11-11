@@ -1,1 +1,31 @@
 @import "home";
+
+.jumbotron {
+    position: relative;
+    background: #000 url("/images/alcohol-bar-party-cocktail-landscape.jpg") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+}
+
+.card{
+  height: 400px;
+  width: 300px;
+  color: white;
+  background: center;
+  background-size: cover;
+  border-radius: 15px;
+}
+
+.card-title{
+  padding-top: 10px;
+}
+
+.cocktail-details{
+  padding-bottom: 50px;
+}
+.doses{
+
+}

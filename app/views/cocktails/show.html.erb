@@ -1,24 +1,29 @@
-<div class="container center_div">
-  <div class='card'>
-    <h1> <%= @cocktail.name %> </h1>
-    <br>
-    <% @cocktail.doses.each do |dose| %>
-      <b><%= dose.ingredient.name %></b>,
-      <%= dose.description %>
-      <%=link_to('Dlt', cocktail_dose_path(@cocktail, dose), method: :delete)%><br>
-    <% end %>
-    <br>
-    <br>
-    <%=link_to('Go back to cocktails', cocktails_url)%>
-  </div>
-
-  <div class="card">
-    <h2>Add an ingredient</h2>
-    <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.association :ingredient, input_html: { class: 'form_input' }%>
-      <%= f.input :description, input_html: { class: 'form_input' } %>
-      <%= f.submit "add a dose", class: "btn btn-primary" %>
-    <% end %>
+<%= render 'jumbo' %>
+<div class="container">
+  <h2> <%= @cocktail.name %> </h2>
+  <div class="row cocktail-details">
+    <div class="col-xs-4">
+      <div class='card' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url('<%= cl_image_path  @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+      </div>
+      <%=link_to('Go back to cocktails', cocktails_url)%>
+    </div>
+    <div class="doses col-xs-4">
+      <h3>Recipe</h3>
+      <% @cocktail.doses.each do |dose| %>
+        <b><%= dose.ingredient.name %></b>,
+        <%= dose.description %>
+        <%=link_to('Dlt', cocktail_dose_path(@cocktail, dose), method: :delete)%><br>
+      <% end %>
+    </div>
+    <div class="col-xs-4">
+    <h3>Add Ingredients</h3>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient, input_html: { class: 'form_input' }%>
+        <%= f.input :description, input_html: { class: 'form_input' } %>
+        <%= f.submit "add a dose", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
 <%# link_to('Add Dose', cocktail_dose_path(@cocktail.id))%>
