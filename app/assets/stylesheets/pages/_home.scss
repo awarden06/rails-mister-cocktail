@@ -2,3 +2,10 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.background{
+  width: 200px;
+  height: 200px;
+  background-image: url('images/alcohol-bar-party-cocktail-landscape.jpg');
+  position: absolute;
+  z-index: 1;
+}

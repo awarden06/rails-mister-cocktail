@@ -1,13 +1,15 @@
-<div class="card text-center">
-  <h1>Cocktails</h1>
-  <br>
-  <br>
-  <br>
-    <%@cocktails.each do |cocktail|%>
-    <%= cocktail.name %> <%= link_to('view', cocktail_path(cocktail)) %><br>
-    <%end%>
-  <br>
-  <br>
-  <br>
-  <%=link_to('CREATE NEW COCKTAIL', new_cocktail_url)%>
+<div class="container">
+  <div class="card text-center">
+    <h1>Cocktails</h1>
+    <br>
+    <br>
+    <br>
+      <%@cocktails.each do |cocktail|%>
+      <%= cocktail.name %> <%= link_to('view', cocktail_path(cocktail)) %><br>
+      <%end%>
+    <br>
+    <br>
+    <br>
+    <%=link_to('CREATE NEW COCKTAIL', new_cocktail_url)%>
+  </div>
 </div>
